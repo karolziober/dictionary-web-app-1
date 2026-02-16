@@ -1,0 +1,164 @@
+:root {
+  /* Neutral */
+  --neutral-950: #000000;
+  --neutral-900: #1f1f1f;
+  --neutral-800: #2d2d2d;
+  --neutral-700: #3a3a3a;
+  --neutral-500: #757575;
+  --neutral-200: #e9e9e9;
+  --neutral-100: #f4f4f4;
+  --neutral-0: #ffffff;
+
+  /* Purple */
+  --purple-600: #8f19e8;
+  --purple-500: #a445ed;
+
+  /* Red */
+  --red-500: #ff5252;
+
+  /* Font Sizes */
+  --fs-preset-1: 32px;
+  --fs-preset-2: 24px;
+  --fs-preset-3: 20px;
+  --fs-preset-4: 18px;
+  --fs-preset-5: 16px;
+  --fs-preset-6: 15px;
+  --fs-preset-7: 14px;
+
+  /* Font Weights  */
+  --fw-preset-1: 700;
+  --fw-preset-2-bold-italic: 700;
+  --fw-preset-2-regular: 400;
+  --fw-preset-3-bold: 700;
+  --fw-preset-3-regular: 400;
+  --fw-preset-4-bold: 700;
+  --fw-preset-4-bold-italic: 700;
+  --fw-preset-4-regular: 400;
+  --fw-preset-5-bold: 700;
+  --fw-preset-5-regular: 400;
+  --fw-preset-6: 400;
+  --fw-preset-7-bold: 700;
+  --fw-preset-7-regular: 400;
+}
+
+/* FONTS */
+[data-font="serif"] {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  /* Line Heights (mobile) */
+  --lh-preset-1: 1.3;
+  --lh-preset-2: 1.2;
+  --lh-preset-3: 1.3;
+  --lh-preset-4: 1.33;
+  --lh-preset-4-bold-italic: 1.27;
+  --lh-preset-5: 1.2;
+  --lh-preset-6: 1.6;
+  --lh-preset-7: 1.3;
+  --lh-preset-7-bold: 1.7;
+
+  /* Font Styles (mobile) */
+  --fst-preset-2-bold-italic: italic;
+  --fst-preset-4-bold-italic: italic;
+
+  /* Letter Spacing (mobile) */
+  --ls-preset-6: 0;
+}
+
+[data-font="sans"] {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  /* Line Heights (mobile) */
+  --lh-preset-1: 1.2;
+  --lh-preset-2: 1.2;
+  --lh-preset-3: 1.2;
+  --lh-preset-4: 1.33;
+  --lh-preset-4-bold-italic: 1.22;
+  --lh-preset-5: 1.2;
+  --lh-preset-6: 1.6;
+  --lh-preset-7: 1.2;
+  --lh-preset-7-bold: 1.7;
+
+  /* Font Styles (mobile) */
+  --fst-preset-2-bold-italic: italic;
+  --fst-preset-4-bold-italic: italic;
+
+  /* Letter Spacing (mobile) */
+  --ls-preset-6: 0;
+}
+
+[data-font="mono"] {
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  /* Line Heights (mobile) */
+  --lh-preset-1: 1.05;
+  --lh-preset-2: 1.04;
+  --lh-preset-3: 1.05;
+  --lh-preset-4: 1.33;
+  --lh-preset-5: 1.05;
+  --lh-preset-6: 1.6;
+  --lh-preset-7: 1.07;
+  --lh-preset-7-bold: 1.7;
+
+  /* Font Styles (mobile) */
+  --fst-preset-2-bold-italic: italic;
+
+  /* Letter Spacing (mobile) */
+  --ls-preset-6: -0.23px;
+}
+
+/* BASE */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--neutral-0);
+  /* display: flex;
+  flex-direction: column; */
+}
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 2rem;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+
+  /* align-items: center; */
+  justify-content: space-between;
+}
+input[placeholder] {
+  font-size: 1rem;
+}
+
+/* COMPONENTS */
+.header__menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  background-color: var(--neutral-100);
+  border-radius: 1rem;
+  padding-block: 1rem;
+  padding-inline: 1.5rem;
+}
+
+.search__input,
+.search__button {
+  border: 0;
+  background: transparent;
+}

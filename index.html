@@ -1,14 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link href="style.css" rel="stylesheet" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Dictionary web app</title>
-</head>
-<body>
+    <title>Frontend Mentor | Dictionary web app</title>
+  </head>
+  <body data-font="serif">
+    <main>
+      <header class="header">
+        <div class="header__logo">Logo</div>
+        <div class="header__menu">
+          <div class="header__font">Sans Serif</div>
+          <div class="header__theme">theme</div>
+        </div>
+      </header>
+      <form id="search" role="search" class="search">
+        <input
+          type="search"
+          id="search-input"
+          aria-label="Search for a word"
+          placeholder="Search for a word..."
+          class="search__input"
+        />
 
-</body>
+        <button type="submit" class="search__button">
+          <img src="assets/images/icon-search.svg" />
+        </button>
+      </form>
+      <section class="result">
+        <div class="result__word-section">
+          <h1 class="result__searched-word">Keyboard</h1>
+          <span class="result__phonetic">/fonetic/</span>
+        </div>
+        <button type="button" class="result__play" id="play">play</button>
+      </section>
+      <div class="result__meanings"></div>
+    </main>
+    <template id="definition">
+      <section class="lexical">
+        <div class="lexical__heading">
+          <h2 class="lexical__category">category</h2>
+          <div class="lexical__line">line</div>
+        </div>
+        <p class="lexical__meanings">Meaning</p>
+        <ul class="lexical__list"></ul>
+        <div class="synonyms">synonyms</div>
+      </section>
+    </template>
+
+    <template id="meanings">
+      <li class="lexical__meaning">item</li>
+    </template>
+  </body>
 </html>
