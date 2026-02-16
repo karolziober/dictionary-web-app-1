@@ -20,13 +20,29 @@
 
     <title>Frontend Mentor | Dictionary web app</title>
   </head>
-  <body data-font="serif">
+  <body data-font="sans" data-theme="light">
     <main>
       <header class="header">
-        <div class="header__logo">Logo</div>
+        <div class="header__logo">
+          <img src="assets/images/logo.svg" alt="Dictionary Logo" />
+        </div>
         <div class="header__menu">
-          <div class="header__font">Sans Serif</div>
-          <div class="header__theme">theme</div>
+          <div class="header__font">Mono</div>
+          <button type="button" class="header__btn">
+            <img src="assets/images/icon-arrow-down.svg" />
+          </button>
+          <div class="header__line"></div>
+          <!-- toggle -->
+          <div class="header__toggle">
+            <label class="switch">
+              <input type="checkbox" id="toggle" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!-- toggle -->
+          <div class="header__dark">
+            <img src="assets/images/icon-moon.svg" alt="Dark Mode" />
+          </div>
         </div>
       </header>
       <form id="search" role="search" class="search">
@@ -44,27 +60,34 @@
       </form>
       <section class="result">
         <div class="result__word-section">
-          <h1 class="result__searched-word">Keyboard</h1>
-          <span class="result__phonetic">/fonetic/</span>
+          <h1 class="result__searched-word" id="main-result">keyboard</h1>
+          <span class="result__phonetic" id="phonetic">/fonetic/</span>
         </div>
-        <button type="button" class="result__play" id="play">play</button>
+        <button type="button" class="result__play" id="play">
+          <img src="assets/images/icon-play.svg" alt="Play the word" />
+        </button>
       </section>
       <div class="result__meanings"></div>
     </main>
     <template id="definition">
       <section class="lexical">
         <div class="lexical__heading">
-          <h2 class="lexical__category">category</h2>
-          <div class="lexical__line">line</div>
+          <h2 class="lexical__category">noun</h2>
+          <div class="lexical__line"></div>
         </div>
         <p class="lexical__meanings">Meaning</p>
         <ul class="lexical__list"></ul>
-        <div class="synonyms">synonyms</div>
+        <div class="synonyms">
+          <div class="synonyms__title">Synonyms</div>
+          <div class="synonyms__value" id="synonyms-value">
+            "measure", "supervise", "play", "arrange"
+          </div>
+        </div>
       </section>
     </template>
 
     <template id="meanings">
-      <li class="lexical__meaning">item</li>
+      <li class="lexical__meaning">A device used to produce music.</li>
     </template>
   </body>
 </html>
