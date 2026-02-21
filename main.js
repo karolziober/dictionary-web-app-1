@@ -108,7 +108,6 @@ class Dictionary {
 
         this.renderMeanings(lexicalList, definitions);
         this.resultMeanings.appendChild(cloneDefinitions);
-        this.getSource();
       }
     });
   }
@@ -132,9 +131,6 @@ class Dictionary {
   getMainResult() {
     this.mainResult.textContent = this.data[0].word;
     this.phonetic.textContent = this.data[0].phonetic;
-  }
-
-  getSource() {
     this.source.textContent = this.data[0].sourceUrls;
   }
 }
