@@ -58,16 +58,35 @@
           <img src="assets/images/icon-search.svg" />
         </button>
       </form>
-      <section class="result">
-        <div class="result__word-section">
-          <h1 class="result__searched-word" id="main-result">keyboard</h1>
-          <span class="result__phonetic" id="phonetic">/fonetic/</span>
+      <section class="start-screen">
+        <div class="start-screen__message">
+          <h2>Welcome</h2>
+          <p>Type in any word in the search field...</p>
         </div>
-        <button type="button" class="result__play" id="play">
-          <img src="assets/images/icon-play.svg" alt="Play the word" />
-        </button>
       </section>
-      <div class="result__meanings"></div>
+      <section class="no-results hidden">
+        <h2>No Definitions Found</h2>
+        <p>
+          Sorry, we couldn't find definitions for the word you were looking for.
+          You can try the search again at later time or head to the web instead.
+        </p>
+      </section>
+      <section class="lower hidden">
+        <section class="result">
+          <div class="result__word-section">
+            <h1 class="result__searched-word" id="main-result">keyboard</h1>
+            <span class="result__phonetic" id="phonetic">/fonetic/</span>
+          </div>
+          <button type="button" class="result__play" id="play">
+            <img src="assets/images/icon-play.svg" alt="Play the word" />
+          </button>
+        </section>
+        <div class="result__meanings"></div>
+        <div class="source">
+          <div class="source__label">Source</div>
+          <div class="source__link"></div>
+        </div>
+      </section>
     </main>
     <template id="definition">
       <section class="lexical">
@@ -79,15 +98,13 @@
         <ul class="lexical__list"></ul>
         <div class="synonyms">
           <div class="synonyms__title">Synonyms</div>
-          <div class="synonyms__value" id="synonyms-value">
-            "measure", "supervise", "play", "arrange"
-          </div>
+          <div class="synonyms__value" id="synonyms-value"></div>
         </div>
       </section>
     </template>
 
     <template id="meanings">
-      <li class="lexical__meaning">A device used to produce music.</li>
+      <li class="lexical__meaning"></li>
     </template>
   </body>
 </html>
