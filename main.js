@@ -16,6 +16,7 @@ class Dictionary {
     this.welcomeSection = document.querySelector(".start-screen");
     this.noResultsSection = document.querySelector(".no-results");
     this.validationMessage = document.getElementById("validation-message");
+    this.play = document.getElementById("play");
 
     this.USER_STATE = { screen: "start" };
 
@@ -26,6 +27,7 @@ class Dictionary {
     this.setScreen("start");
     this.themeToggle();
     await this.search();
+    this.playBack();
   }
 
   updateView() {
@@ -70,8 +72,8 @@ class Dictionary {
     this.searchInput.addEventListener("keydown", async (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        this.resultMeanings.innerHTML = "";
 
+        this.resultMeanings.innerHTML = "";
         if (this.searchInput.value !== "") {
           try {
             const word = e.target.value;
@@ -165,6 +167,17 @@ class Dictionary {
 
   fieldValidation(condition) {
     this.searchForm.classList.toggle("search--validation", condition);
+  }
+
+  playBack() {
+    this.play.addEventListener("click", () => {
+      if (!this.data) return;
+      const url = this.data[0].phonetics.find(
+        (item) => item.audio !== "",
+      ).audio;
+      const audio = new Audio(url);
+      audio.play();
+    });
   }
 }
 

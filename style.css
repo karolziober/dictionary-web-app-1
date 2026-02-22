@@ -304,8 +304,7 @@ input:checked + .slider:before {
 .search--validation {
   border: 0.0625rem solid var(--red-500);
 }
-.search:hover,
-.search:focus-within {
+.search:hover {
   border: 0.0625rem solid var(--purple-500);
 }
 
@@ -347,6 +346,7 @@ input:checked + .slider:before {
 }
 
 .result__searched-word {
+  color: var(--text-primary);
   font-size: var(--fs-preset-1);
   font-weight: var(--fw-preset-1);
   line-height: var(--lh-preset-1);
@@ -370,6 +370,7 @@ input:checked + .slider:before {
 .lexical {
   display: flex;
   flex-direction: column;
+  /* margin-block-end: 2rem; */
 }
 
 .lexical__heading {
@@ -435,6 +436,7 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-block-start: 2rem;
 }
 
 .source__label,
