@@ -17,6 +17,11 @@ class Dictionary {
     this.noResultsSection = document.querySelector(".no-results");
     this.validationMessage = document.getElementById("validation-message");
     this.play = document.getElementById("play");
+    this.home = document.getElementById("home");
+    this.dropDownBtn = document.getElementById("dropdown");
+    this.dropDownList = document.querySelector(".dropdown-section__list");
+    this.headerFont = document.getElementById("header-font");
+    this.fontBtns = document.querySelectorAll(".dropdown-section__font");
 
     this.USER_STATE = { screen: "start" };
 
@@ -28,6 +33,9 @@ class Dictionary {
     this.themeToggle();
     await this.search();
     this.playBack();
+    this.startPage();
+    this.showDropDown();
+    this.setFont();
   }
 
   updateView() {
@@ -178,6 +186,34 @@ class Dictionary {
       const audio = new Audio(url);
       audio.play();
     });
+  }
+
+  clearInput() {
+    this.searchInput.value = "";
+  }
+
+  startPage() {
+    this.home.addEventListener("click", () => {
+      this.setScreen("start");
+      this.clearInput();
+    });
+  }
+
+  showDropDown() {
+    this.dropDownBtn.addEventListener("click", () => {
+      this.dropDownList.classList.toggle("hidden");
+    });
+  }
+
+  setFont() {
+    this.fontBtns.forEach((btn) =>
+      btn.addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON") {
+          document.body.dataset.font = e.target.dataset.value;
+          this.headerFont.textContent = e.target.textContent;
+        }
+      }),
+    );
   }
 }
 

@@ -23,14 +23,34 @@
   <body data-font="sans" data-theme="light">
     <main>
       <header class="header">
-        <div class="header__logo">
+        <div class="header__logo" id="home">
           <img src="assets/images/logo.svg" alt="Dictionary Logo" />
         </div>
         <div class="header__menu">
-          <div class="header__font">Mono</div>
-          <button type="button" class="header__btn">
-            <img src="assets/images/icon-arrow-down.svg" />
-          </button>
+          <div class="header__font" id="header-font">Sans</div>
+          <div class="dropdown-section">
+            <button type="button" class="dropdown-section__btn" id="dropdown">
+              <img src="assets/images/icon-arrow-down.svg" />
+            </button>
+            <ul class="dropdown-section__list hidden">
+              <li class="dropdown-section__item">
+                <button class="dropdown-section__font sans" data-value="sans">
+                  Sans Serif
+                </button>
+              </li>
+              <li class="dropdown-section__item">
+                <button class="dropdown-section__font serif" data-value="serif">
+                  Serif
+                </button>
+              </li>
+              <li class="dropdown-section__item">
+                <button class="dropdown-section__font mono" data-value="mono">
+                  Mono
+                </button>
+              </li>
+            </ul>
+          </div>
+
           <div class="header__line"></div>
           <!-- toggle -->
           <div class="header__toggle">
