@@ -11,9 +11,11 @@ class Dictionary {
     this.synonyms = document.getElementById("synonyms-value");
     this.source = document.querySelector(".source__link");
     this.searchInput = document.getElementById("search-input");
+    this.searchForm = document.querySelector(".search");
     this.lowerSection = document.querySelector(".lower");
     this.welcomeSection = document.querySelector(".start-screen");
     this.noResultsSection = document.querySelector(".no-results");
+    this.validationMessage = document.getElementById("validation-message");
 
     this.USER_STATE = { screen: "start" };
 
@@ -28,9 +30,20 @@ class Dictionary {
 
   updateView() {
     const viewState = {
-      start: { welcome: true, noDefinition: false, word: false },
-      result: { welcome: false, noDefinition: false, word: true },
-      noResult: { welcome: false, noDefinition: true, word: false },
+      start: { welcome: true, noDefinition: false, word: false, empty: false },
+      result: { welcome: false, noDefinition: false, word: true, empty: false },
+      noResult: {
+        welcome: false,
+        noDefinition: true,
+        word: false,
+        empty: false,
+      },
+      emptyForm: {
+        welcome: false,
+        noDefinition: false,
+        word: false,
+        empty: true,
+      },
     };
 
     const state = viewState[this.USER_STATE.screen];
@@ -39,6 +52,7 @@ class Dictionary {
     this.welcomeSection.classList.toggle("hidden", !state.welcome);
     this.lowerSection.classList.toggle("hidden", !state.word);
     this.noResultsSection.classList.toggle("hidden", !state.noDefinition);
+    this.validationMessage.classList.toggle("hidden", !state.empty);
   }
 
   themeToggle() {
@@ -57,19 +71,26 @@ class Dictionary {
       if (e.key === "Enter") {
         e.preventDefault();
         this.resultMeanings.innerHTML = "";
-        try {
-          const word = e.target.value;
-          const response = await fetch(
-            `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`,
-          );
-          if (!response.ok) throw new Error("response not ok");
-          this.data = await response.json();
-          this.getMainResult();
-          this.renderPartOfSpeech();
 
-          this.setScreen("result");
-        } catch (error) {
-          this.setScreen("noResult");
+        if (this.searchInput.value !== "") {
+          try {
+            const word = e.target.value;
+            const response = await fetch(
+              `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`,
+            );
+            if (!response.ok) throw new Error("response not ok");
+            this.data = await response.json();
+            this.fieldValidation(false);
+            this.getMainResult();
+            this.renderPartOfSpeech();
+
+            this.setScreen("result");
+          } catch (error) {
+            this.setScreen("noResult");
+          }
+        } else {
+          this.setScreen("emptyForm");
+          this.fieldValidation(true);
         }
       }
     });
@@ -132,6 +153,18 @@ class Dictionary {
     this.mainResult.textContent = this.data[0].word;
     this.phonetic.textContent = this.data[0].phonetic;
     this.source.textContent = this.data[0].sourceUrls;
+    this.source.href = this.data[0].sourceUrls;
+  }
+
+  resetMainResult() {
+    this.mainResult.textContent = "";
+    this.phonetic.textContent = "";
+    this.source.textContent = "";
+    this.source.href = "";
+  }
+
+  fieldValidation(condition) {
+    this.searchForm.classList.toggle("search--validation", condition);
   }
 }
 

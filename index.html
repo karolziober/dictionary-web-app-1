@@ -45,19 +45,23 @@
           </div>
         </div>
       </header>
-      <form id="search" role="search" class="search">
-        <input
-          type="search"
-          id="search-input"
-          aria-label="Search for a word"
-          placeholder="Search for a word..."
-          class="search__input"
-        />
 
-        <button type="submit" class="search__button">
-          <img src="assets/images/icon-search.svg" />
-        </button>
-      </form>
+      <div class="form-section">
+        <form id="search" role="search" class="search">
+          <input
+            type="search"
+            id="search-input"
+            aria-label="Search for a word"
+            placeholder="Search for a word..."
+            class="search__input"
+          />
+          <button type="submit" class="search__button">
+            <img src="assets/images/icon-search.svg" />
+          </button>
+        </form>
+        <h3 class="empty hidden" id="validation-message">Can`t be empty...</h3>
+      </div>
+
       <section class="start-screen">
         <div class="start-screen__message">
           <h2>Welcome</h2>
@@ -84,7 +88,7 @@
         <div class="result__meanings"></div>
         <div class="source">
           <div class="source__label">Source</div>
-          <div class="source__link"></div>
+          <a class="source__link" target="_blank"></a>
         </div>
       </section>
     </main>
