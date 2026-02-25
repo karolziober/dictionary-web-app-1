@@ -12,12 +12,13 @@ class Dictionary {
     this.source = document.querySelector(".source__link");
     this.searchInput = document.getElementById("search-input");
     this.searchForm = document.querySelector(".search");
-    this.lowerSection = document.querySelector(".lower");
+    this.lowerSection = document.querySelector(".word-result");
     this.welcomeSection = document.querySelector(".start-screen");
     this.noResultsSection = document.querySelector(".no-results");
     this.validationMessage = document.getElementById("validation-message");
     this.play = document.getElementById("play");
     this.home = document.getElementById("home");
+    this.dropDownSection = document.querySelector(".dropdown-section");
     this.dropDownBtn = document.getElementById("dropdown");
     this.dropDownList = document.querySelector(".dropdown-section__list");
     this.headerFont = document.getElementById("header-font");
@@ -36,6 +37,7 @@ class Dictionary {
     this.startPage();
     this.showDropDown();
     this.setFont();
+    this.hideDropDown();
   }
 
   updateView() {
@@ -67,7 +69,7 @@ class Dictionary {
 
   themeToggle() {
     this.toggle.addEventListener("change", () => {
-      document.body.dataset.theme = toggle.checked ? "dark" : "light";
+      document.body.dataset.theme = this.toggle.checked ? "dark" : "light";
     });
   }
 
@@ -199,9 +201,21 @@ class Dictionary {
     });
   }
 
+  toggleDropDown() {
+    const isHidden = this.dropDownList.classList.toggle("hidden");
+    this.dropDownBtn.setAttribute("aria-expanded", !isHidden);
+  }
+
   showDropDown() {
     this.dropDownBtn.addEventListener("click", () => {
-      this.dropDownList.classList.toggle("hidden");
+      this.toggleDropDown();
+    });
+  }
+
+  hideDropDown() {
+    document.addEventListener("click", (e) => {
+      if (!this.dropDownSection.contains(e.target))
+        this.dropDownList.classList.add("hidden");
     });
   }
 
@@ -211,6 +225,7 @@ class Dictionary {
         if (e.target.tagName === "BUTTON") {
           document.body.dataset.font = e.target.dataset.value;
           this.headerFont.textContent = e.target.textContent;
+          this.toggleDropDown();
         }
       }),
     );

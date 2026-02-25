@@ -2,6 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="A dictionary web app. Search for any English word to get definitions, phonetics, synonyms, and audio pronunciation."
+    />
+    <meta property="og:title" content="Dictionary Web App" />
+    <meta
+      property="og:description"
+      content="A dictionary web app. Search for any English word to get definitions, phonetics, synonyms, and audio pronunciation."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://karolziober.github.io/dictionary-web-app-1/"
+    />
+    <meta
+      property="og:image"
+      content="https://karolziober.github.io/dictionary-web-app-1/preview.jpg"
+    />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="main.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,10 +46,18 @@
           <img src="assets/images/logo.svg" alt="Dictionary Logo" />
         </div>
         <div class="header__menu">
-          <div class="header__font" id="header-font">Sans</div>
+          <span class="header__font" id="header-font">Sans</span>
           <div class="dropdown-section">
-            <button type="button" class="dropdown-section__btn" id="dropdown">
-              <img src="assets/images/icon-arrow-down.svg" />
+            <button
+              type="button"
+              class="dropdown-section__btn"
+              id="dropdown"
+              aria-label="Select font"
+            >
+              <img
+                src="assets/images/icon-arrow-down.svg"
+                alt="Arrow down icon"
+              />
             </button>
             <ul class="dropdown-section__list hidden">
               <li class="dropdown-section__item">
@@ -55,7 +82,11 @@
           <!-- toggle -->
           <div class="header__toggle">
             <label class="switch">
-              <input type="checkbox" id="toggle" />
+              <input
+                type="checkbox"
+                id="toggle"
+                aria-label="Toggle dark mode"
+              />
               <span class="slider round"></span>
             </label>
           </div>
@@ -76,15 +107,17 @@
             class="search__input"
           />
           <button type="submit" class="search__button">
-            <img src="assets/images/icon-search.svg" />
+            <img src="assets/images/icon-search.svg" alt="Search icon" />
           </button>
         </form>
-        <h3 class="empty hidden" id="validation-message">Can`t be empty...</h3>
+        <p class="empty hidden" id="validation-message" role="alert">
+          Can`t be empty...
+        </p>
       </div>
 
       <section class="start-screen">
         <div class="start-screen__message">
-          <h2>Welcome</h2>
+          <div class="start-screen__welcome">Welcome</div>
           <p>Type in any word in the search field...</p>
         </div>
       </section>
@@ -95,7 +128,7 @@
           You can try the search again at later time or head to the web instead.
         </p>
       </section>
-      <section class="lower hidden">
+      <section class="word-result hidden">
         <section class="result">
           <div class="result__word-section">
             <h1 class="result__searched-word" id="main-result">keyboard</h1>
@@ -109,7 +142,24 @@
         <div class="lexical__line"></div>
         <div class="source">
           <div class="source__label">Source</div>
-          <a class="source__link" target="_blank"></a>
+          <div class="source__group">
+            <a class="source__link" target="_blank"> </a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+            >
+              <path
+                fill="none"
+                stroke="#838383"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M6.09 3.545H2.456A1.455 1.455 0 0 0 1 5v6.545A1.455 1.455 0 0 0 2.455 13H9a1.455 1.455 0 0 0 1.455-1.455V7.91m-5.091.727 7.272-7.272m0 0H9m3.636 0V5"
+              />
+            </svg>
+          </div>
         </div>
       </section>
     </main>
