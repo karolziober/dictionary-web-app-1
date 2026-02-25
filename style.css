@@ -161,9 +161,7 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-input[placeholder] {
-  font-size: 1rem;
-}
+
 input[type="search"]::-webkit-search-cancel-button {
   display: none;
 }
@@ -222,7 +220,6 @@ p {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -235,7 +232,6 @@ p {
   top: 50%;
   transform: translateY(-50%);
   background-color: white;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -401,7 +397,7 @@ input:checked + .slider:before {
 .result__phonetic {
   color: var(--purple-500);
   font-size: var(--fs-preset-4);
-  font-weight: var(--fw-preset-4);
+  font-weight: var(--fw-preset-4-regular);
   line-height: var(--lh-preset-4);
 }
 
@@ -468,7 +464,7 @@ input:checked + .slider:before {
 
 .lexical__meaning {
   font-size: var(--fs-preset-6);
-  font-weight: var(--fw-preset-6-regular);
+  font-weight: var(--fw-preset-6);
   line-height: var(--lh-preset-6);
 }
 .synonyms {
