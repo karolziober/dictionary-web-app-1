@@ -6,6 +6,7 @@ class Dictionary {
     this.tempDefinition = document.getElementById("definition");
     this.tempMeanings = document.getElementById("meanings");
     this.toggle = document.getElementById("toggle");
+    // this.themeIcon = document.querySelector(".header__dark");
     this.mainResult = document.getElementById("main-result");
     this.phonetic = document.getElementById("phonetic");
     this.synonyms = document.getElementById("synonyms-value");
@@ -19,7 +20,7 @@ class Dictionary {
     this.play = document.getElementById("play");
     this.home = document.getElementById("home");
     this.dropDownSection = document.querySelector(".dropdown-section");
-    this.dropDownBtn = document.getElementById("dropdown");
+    this.dropDownBtn = document.querySelectorAll(".dropdown-section__btn");
     this.dropDownList = document.querySelector(".dropdown-section__list");
     this.headerFont = document.getElementById("header-font");
     this.fontBtns = document.querySelectorAll(".dropdown-section__font");
@@ -198,17 +199,24 @@ class Dictionary {
     this.home.addEventListener("click", () => {
       this.setScreen("start");
       this.clearInput();
+      this.fieldValidation(false);
     });
   }
 
   toggleDropDown() {
     const isHidden = this.dropDownList.classList.toggle("hidden");
-    this.dropDownBtn.setAttribute("aria-expanded", !isHidden);
+
+    this.dropDownBtn.forEach((item) => {
+      item.setAttribute("aria-expanded", !isHidden);
+    });
   }
 
   showDropDown() {
-    this.dropDownBtn.addEventListener("click", () => {
-      this.toggleDropDown();
+    this.dropDownBtn.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.toggleDropDown();
+      });
     });
   }
 
